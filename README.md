@@ -1,2 +1,2 @@
-# leetcode
-Leetcode practice repository.
+# Leetcode
+Leetcode practice repository. All solutions are written in C++.
