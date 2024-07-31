@@ -5,3 +5,9 @@ input/
 input
 
 input/*
+
+.vscode
+
+.vscode/
+
+.vscode/*
