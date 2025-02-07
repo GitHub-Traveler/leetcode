@@ -1,17 +1,16 @@
+#include <algorithm>
 #include <set>
 #include <vector>
-#include <algorithm>
 using namespace std;
 
 class Solution {
-public:
-    vector<vector<int>> fourSum(vector<int>& nums, int target) {
+  public:
+    vector<vector<int>> fourSum(vector<int> &nums, int target) {
         sort(begin(nums), end(nums));
         return kSum(nums, target, 0, 4);
     }
 
-    vector<vector<int>> kSum(vector<int>& nums, long long target, int start,
-                             int k) {
+    vector<vector<int>> kSum(vector<int> &nums, long long target, int start, int k) {
         vector<vector<int>> res;
 
         // If we have run out of numbers to add, return res.
@@ -36,12 +35,10 @@ public:
 
         for (int i = start; i < nums.size(); ++i) {
             if (i == start || nums[i - 1] != nums[i]) {
-                for (vector<int>& subset :
-                     kSum(nums, static_cast<long long>(target) - nums[i], i + 1,
-                          k - 1)) {
+                for (vector<int> &subset :
+                     kSum(nums, static_cast<long long>(target) - nums[i], i + 1, k - 1)) {
                     res.push_back({nums[i]});
-                    res.back().insert(end(res.back()), begin(subset),
-                                      end(subset));
+                    res.back().insert(end(res.back()), begin(subset), end(subset));
                 }
             }
         }
@@ -49,7 +46,7 @@ public:
         return res;
     }
 
-    vector<vector<int>> twoSum(vector<int>& nums, long long target, int start) {
+    vector<vector<int>> twoSum(vector<int> &nums, long long target, int start) {
         vector<vector<int>> res;
         int lo = start, hi = int(nums.size()) - 1;
 
@@ -57,8 +54,7 @@ public:
             int curr_sum = nums[lo] + nums[hi];
             if (curr_sum < target || (lo > start && nums[lo] == nums[lo - 1])) {
                 ++lo;
-            } else if (curr_sum > target ||
-                       (hi < nums.size() - 1 && nums[hi] == nums[hi + 1])) {
+            } else if (curr_sum > target || (hi < nums.size() - 1 && nums[hi] == nums[hi + 1])) {
                 --hi;
             } else {
                 res.push_back({nums[lo++], nums[hi--]});
@@ -69,9 +65,9 @@ public:
     }
 };
 
-int main(int argc, char* argv[]) {
+int main(int argc, char *argv[]) {
     Solution s;
     vector<int> vec = {2, 2, 2, 2, 2};
     vector<vector<int>> sol = s.fourSum(vec, 8);
-    return 0;    
+    return 0;
 }

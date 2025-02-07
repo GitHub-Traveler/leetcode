@@ -11,3 +11,5 @@ input/*
 .vscode/
 
 .vscode/*
+
+*.out
