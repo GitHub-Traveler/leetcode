@@ -6,10 +6,4 @@ input
 
 input/*
 
-.vscode
-
-.vscode/
-
-.vscode/*
-
 *.out

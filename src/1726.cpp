@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 #include <vector>
 
@@ -12,7 +11,7 @@ public:
         vector<int> products(total_number);
         for (int i = 0; i < max_size; i++) {
             for (int j = i + 1; j < max_size; j++) {
-
+                
             }
         }
     }
